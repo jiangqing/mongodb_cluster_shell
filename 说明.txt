@@ -1,0 +1,11 @@
+
+重启mongodb分片服务器，需要启用mongodb分片,步骤 ——
+
+1、登录服务器，进入/data/mongodb目录
+2、执行startConfigServer.sh脚本，启动配置实例
+3、执行所有的startMongoDB_shardx.sh脚本，启动分片实例(x为数字，代表分片id)
+4、执行startArbiterServer.sh脚本，启动仲裁实例
+
+以上是脚本的启动顺序，但不是每台服务器都会有这全部的脚本，有的就执行，没有的就跳过
+
+5、重启路由实例：分别登录上119.147.247.88和119.147.229.250两台服务器，进入/data/mongodb目录,执行shutdown.sh脚本，再执行startup脚本
